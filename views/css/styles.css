@@ -1,0 +1,53 @@
+.second-container {
+  padding-top: 160px;
+}
+
+.red-colored {
+  color: #cc0000;
+}
+
+.fetch-area {
+  padding: 30px;
+}
+
+.img-responsive {
+  width: 95%;
+  height: auto;
+}
+
+.resultArea {
+  margin-top: -50px;
+}
+
+#showThumbnail {
+  max-width: 240px;
+  border-radius: 5px;
+  top: 0px;
+  left: 0px;
+  z-index: 1;
+  filter: brightness(2);
+}
+
+#showThumbnailIcon {
+  max-width: 50px;
+  position: absolute;
+  top: 80px;
+  left: 180px;
+  z-index: 3;
+  filter: drop-shadow(16px 16px 20px #cc0000);
+}
+
+.image {
+  margin: auto;
+}
+
+.playlist-meta {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+#footerData {
+    width: 100%;
+    text-align: center;
+}

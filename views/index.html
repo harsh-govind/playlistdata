@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!--  Essential META Tags -->
+        <meta property="og:title" content="Playlist Data • Find the length/duration of any playlist on YouTube">
+        <meta property="og:description" content="Tool to fetch duration/length of any Youtube Playlist">
+        <meta property="og:type" content="webapp" />
+        <meta name="keywords"
+            content="youtube playlist length, playlist duration, playlist at 2x, youtube playlist size">
+        <meta property="og:image" content="https://pd.harshgovind.com/assets/cover.jpg">
+        <meta property="og:url" content="https://pd.harshgovind.com">
+        <meta name="twitter:card" content="summary_large_image">
+
+        <title>Playlist Data • Find the length/duration of any playlist on YouTube</title>
+        <link rel="stylesheet" href="css/styles.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Merriweather&family=Montserrat&family=Roboto+Mono&family=Sacramento&display=swap"
+            rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/Primer/20.3.0-rc.a7df1fad/primer.css" rel="stylesheet" />
+        <link rel="icon" type="image/x-icon" href="assets/favicon.png">
+
+    </head>
+
+    <body data-color-mode="auto" data-light-theme="light" data-dark-theme="dark">
+
+
+        <div class="container-lg px-4 py-4 flex-justify-between  ">
+            <nav class="text-bold text-right">
+                <a class="text-inherit d-inline-block color-fg-default"
+                    href="https://github.com/harsh-govind/playlistdata" target="_blank">GitHub</a>
+                <a class="text-inherit d-inline-block color-fg-default pl-4" href="https://thumbnails.pages.dev/"
+                    target="_blank">Fetch Thumbnails</a>
+            </nav>
+        </div>
+
+
+
+        <!-- for heading and para -->
+        <div class="container-sm second-container header">
+            <h2 class="h1 text-uppercase red-colored pl-3">Playlist Data</h1>
+                <h2 class="h4 pl-3  anim-fade-in" style="margin-top:-7px;">for YouTube</h1>
+                    <p class="f3-light pl-3 pt-3">Tool to fetch duration/length of any Youtube Playlist</p>
+        </div>
+
+        <!-- <p class=  "para">Best way to find out the length of any playlist on YouTube.</p> -->
+
+
+        <!-- Playlist URL Placeholder -->
+        <div class="fetch-area container-sm p-3">
+            <form id="formSubmitted">
+                <div class="input-group">
+                    <input class="form-control width-full input-monospace" type="text" id="myText" name="playlisturl"
+                        placeholder="Enter a YouTube Playlist URL">
+                    <span class="input-group-button">
+                        <button class="btn" type="button" name="button" id="submit" onclick="getData()">
+                            Fetch</button>
+                    </span>
+
+                </div>
+                <p class="note pl-1">e.g. https://youtube.com/playlist?list=PLRBp0Fe2Gpgn8Y9qI-p0aTxVtw8onBSFj</p>
+
+            </form>
+
+            <div class="successMessage pt-5 anim-scale-in">
+                <div id="statusMessageText">Fetching successful!</div>
+            </div>
+        </div>
+
+
+        <div class="resultArea anim-fade-in p-4 container-sm">
+
+
+            <div class="playlist-meta pb-6 pt-6">
+                <img id="showThumbnail">
+                <img id="showThumbnailIcon" src="/assets/playlisticon.png">
+                <div id="footerData">
+                    <span class="f1 text-center"></span>
+                </div>
+            </div>
+
+
+
+            <div class="blankslate">
+                <!-- <%= octicon "octoface", :height = 24, :class => "blankslate-icon" %> -->
+                <svg class="octicon octicon-octoface blankslate-icon  anim-rotate" aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                    <path
+                        d="M12.5 7.25a.75.75 0 00-1.5 0v5.5c0 .27.144.518.378.651l3.5 2a.75.75 0 00.744-1.302L12.5 12.315V7.25z">
+                    </path>
+                    <path fill-rule="evenodd"
+                        d="M12 1C5.925 1 1 5.925 1 12s4.925 11 11 11 11-4.925 11-11S18.075 1 12 1zM2.5 12a9.5 9.5 0 1119 0 9.5 9.5 0 01-19 0z">
+                    </path>
+                </svg>
+                <h3 id="showDuration" class="blankslate-heading"></h3>
+            </div>
+
+
+
+
+
+            <div class="Box container-sm">
+                <div class="Box-header">
+                    <h3 class="Box-title" id="saveTimeMessage">
+                    </h3>
+                </div>
+                <ul>
+                    <li class="Box-row text-center" id="onePointTwoFiveX">
+                    </li>
+                    <li class="Box-row text-center" id="onePointFiveX">
+                    </li>
+                    <li class="Box-row text-center" id="onePointSevenFiveX">
+                    </li>
+                    <li class="Box-row text-center" id="twoX">
+                    </li>
+                </ul>
+            </div>
+            <p id="showAverageDuration" class="f3-light text-center pt-4"></p>
+
+
+
+
+
+
+
+        </div>
+
+        <div class="resultingMessages container-sm p-3">
+            <div id="gif-container" class="width-fit"></div>
+            <p class="f3-light" id="showData"></p>
+            <p class="f3-light" id="showError"></p>
+            <p class="f3-light" id="showAPIError"></p>
+        </div>
+
+
+        <div class="blankslate">
+            <p class="f1" id="loader"></p>
+        </div>
+
+
+        <!-- Footer -->
+        <div class="pt-12 container-lg flex-wrap p-responsive">
+
+            <div class="pt-9 d-md-inline-block float-md-right pb-3">
+                <a href="https://github.com/harsh-govind/playlistdata" target="_blank"
+                    class="d-flex flex-column rounded-1 box-shadow border text-inherit no-underline flex-1"
+                    style="height: 100%">
+                    <h3 class="h4 px-3 pt-3 color-fg-default">playlist-data</h3>
+                    <p class="lh-condensed px-3 pb-3 color-fg-default">Web-app to fetch duration/length from <br>Youtube
+                        Playlists.</p>
+                    <div class=" pl-3 pr-2 py-2  border-top github">
+                        <div class="d-flex flex-row">
+                            <div class="col-3" aria-label="42 stars">
+                                <svg version="1.1" width="16" height="16" viewBox="0 0 16 16"
+                                    class="octicon octicon-star color-fg-default" aria-hidden="true">
+                                    <path fill-rule="evenodd"
+                                        d="M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25zm0 2.445L6.615 5.5a.75.75 0 01-.564.41l-3.097.45 2.24 2.184a.75.75 0 01.216.664l-.528 3.084 2.769-1.456a.75.75 0 01.698 0l2.77 1.456-.53-3.084a.75.75 0 01.216-.664l2.24-2.183-3.096-.45a.75.75 0 01-.564-.41L8 2.694v.001z">
+
+                                    </path>
+                                </svg>
+                                <span class="align-middle color-fg-default">23</span>
+                            </div>
+                            <div class="col-9 text-right">
+                                <img class="avatar tooltipped tooltipped-s" alt="Harsh Govind" aria-label="Harsh Govind"
+                                    height="24" src="https://avatars.githubusercontent.com/u/71700319?v=4">
+                                <img class="avatar tooltipped tooltipped-s" alt="Priyam Raj" aria-label="Priyam Raj"
+                                    height="24" src="https://avatars.githubusercontent.com/u/26673536?v=4">
+                                <img class="avatar tooltipped tooltipped-s" alt="Abhijeet Anand"
+                                    aria-label="Abhijeet Anand" height="24"
+                                    src="https://avatars.githubusercontent.com/u/28523767?v=4">
+                                <img class="avatar tooltipped tooltipped-s" alt="Rounik Prashar"
+                                    aria-label="Rounik Prashar" height="24"
+                                    src="https://avatars.githubusercontent.com/u/56750020?v=4">
+                                <img class="avatar tooltipped tooltipped-s" alt="Satarupa Deb" aria-label="Satarupa Deb"
+                                    height="24" src="https://avatars.githubusercontent.com/u/84276219?v=4">
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+
+            <p class="pt-12 float-left color-text-tertiary pb-3">
+                <> with ♥ by <br>
+                    <a class=color-fg-default href="https://harshgovind.com" target="_blank">Harsh Govind</a>,
+                    <a class=color-fg-default href="https://priyamraj.com" target="_blank">Priyam Raj</a>,
+                    <br>
+                    <a class=color-fg-default href="https://github.com/abhijeetananddeo" target="_blank">Abhijeet
+                        Anand</a>,
+                    <a class=color-fg-default href="https://github.com/Rounik10" target="_blank">Rounik Prashar</a>
+                    <br>and
+                    <a class=color-fg-default href="https://github.com/Satarupa22-SD" target="_blank">Satarupa Deb.</a>
+            </p>
+
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+        <script type="text/javascript" src="./client.js"></script>
+
+
+
+    </body>
+
+</html>
