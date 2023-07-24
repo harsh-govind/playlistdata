@@ -8,7 +8,6 @@ While watching any video playlist it could be often necessary to look into the t
 
 &nbsp;&nbsp;
 ## Features
-
 - No limits
 - Automated Light/Dark Mode
 - Simple One-Page Navigation
@@ -16,8 +15,6 @@ While watching any video playlist it could be often necessary to look into the t
 - No Ads or Paywall, Completely Free & Open-Source
 
 &nbsp;&nbsp;
-
-
 ## Resources & References
 - [Primer CSS](https://primer.style/)
 - [YouTube API V3](https://developers.google.com/youtube/v3/getting-started)
@@ -27,15 +24,11 @@ While watching any video playlist it could be often necessary to look into the t
 - [dotenv - npm](https://www.npmjs.com/package/dotenv) 
 - [express - npm](https://www.npmjs.com/package/express)
 
-
 &nbsp;&nbsp;
-
 ## env
 - YOUTUBE_API_KEY
 
-
 &nbsp;&nbsp;
-
 ## Authors
 - [@harsh-govind](https://github.com/harsh-govind)
 - [@priyam-raj](https://github.com/priyam-raj)
@@ -43,8 +36,6 @@ While watching any video playlist it could be often necessary to look into the t
 - [@Rounik10](https://github.com/Rounik10)
 - [@Satarupa22-SD](https://github.com/Satarupa22-SD)
 
-
 &nbsp;&nbsp;
-
 ## Special Mention
 - [@priyam-raj](https://github.com/priyam-raj)
