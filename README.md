@@ -9,6 +9,7 @@ While watching any video playlist it could be often necessary to look into the t
 &nbsp;&nbsp;
 ## Features
 
+- No limits
 - Automated Light/Dark Mode
 - Simple One-Page Navigation
 - Fast Results
@@ -29,11 +30,21 @@ While watching any video playlist it could be often necessary to look into the t
 
 &nbsp;&nbsp;
 
+## env
+- YOUTUBE_API_KEY
+
+
+&nbsp;&nbsp;
+
 ## Authors
+- [@harsh-govind](https://github.com/harsh-govind)
 - [@priyam-raj](https://github.com/priyam-raj)
 - [@abhijeetananddeo](https://github.com/abhijeetananddeo)
-- [@harsh-govind](https://github.com/harsh-govind)
 - [@Rounik10](https://github.com/Rounik10)
 - [@Satarupa22-SD](https://github.com/Satarupa22-SD)
 
 
+&nbsp;&nbsp;
+
+## Special Mention
+- [@priyam-raj](https://github.com/priyam-raj)
