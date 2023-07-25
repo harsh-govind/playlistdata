@@ -35,7 +35,3 @@ While watching any video playlist it could be often necessary to look into the t
 - [@abhijeetananddeo](https://github.com/abhijeetananddeo)
 - [@Rounik10](https://github.com/Rounik10)
 - [@Satarupa22-SD](https://github.com/Satarupa22-SD)
-
-&nbsp;&nbsp;
-## Special Mention
-- [@priyam-raj](https://github.com/priyam-raj)
